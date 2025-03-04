@@ -1,0 +1,18 @@
+@use "theme/main.theme" as mainTheme;
+@use "theme/default.theme" as defaultTheme;
+
+@include mainTheme.set-theme(defaultTheme.$light-value-map);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: transparent;
+    border: 0;
+    font-size: 0.875rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+

@@ -1,0 +1,20 @@
+<div class="wrapper-progressBar">
+    <ul class="stepper">
+        @for (label of steps(); track $index; let i = $index) {
+        <li [ngClass]="{
+          'stepper-item_active': (i+1) === step(),
+          'stepper-item_done': (i+1) < step(),
+          'stepper-item': true
+        }" [style.width.%]="itemWidth()" (click)="changeStep(i+1)">
+            <div class="stepper-item_label"> <ng-container [ngTemplateOutlet]="label" /></div>
+           
+        </li>
+        }
+    </ul>
+</div>
+
+@if (form()) {
+<ng-container [ngTemplateOutlet]="form()" />
+} @else {
+<p>Empty Form</p>
+}

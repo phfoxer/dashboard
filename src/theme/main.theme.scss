@@ -1,0 +1,15 @@
+@function map-get-value($map, $key) {
+  @if map-has-key($map, $key) {
+    @return map-get($map, $key);
+  } @else {
+    @error "ERROR: Specified key #{$key} does not exist in the mapping #{map-get($map,name)}";
+  }
+}
+
+@mixin set-theme($map) {
+  :root {
+    @each $key, $value in $map {
+      --#{""+$key}: #{$value};
+    }
+  }
+}

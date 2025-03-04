@@ -1,0 +1,1 @@
+export type TDashInput =  'text' | 'password' | 'email' | 'number' | 'tel' | 'url';
