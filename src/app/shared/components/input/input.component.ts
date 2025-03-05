@@ -8,7 +8,6 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, FormsModule],
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InputComponent implements ControlValueAccessor {
@@ -16,6 +15,7 @@ export class InputComponent implements ControlValueAccessor {
   public type: InputSignal<TDashInput> = input.required();
   public label: InputSignal<string> = input.required();
   public placeholder: InputSignal<string> = input('');
+  public full: InputSignal<boolean> = input(false);
 
   protected inputValue: ModelSignal<any> = model<any>();
   protected onTouch?: () => void = () => { };
@@ -43,9 +43,6 @@ export class InputComponent implements ControlValueAccessor {
 
   public setDisabledState?(isDisabled: boolean): void {
     this.isDisabled.set(isDisabled);
-    if (this._ngControl) {
-      this._ngControl.control?.disable({ emitEvent: isDisabled });
-    }
   }
 
   private errosHandler(): TInputErros {

@@ -11,6 +11,7 @@ export class ButtonComponent {
   public onClick: OutputEmitterRef<void> = output<void>();
   public size: InputSignal<TButtonSize> = input<TButtonSize>('md');
   public appearance: InputSignal<TButtonAppearance> = input<TButtonAppearance>('link');
+  public disabled: InputSignal<boolean> = input<boolean>(false);
 
   protected onClickHandler(event:any) {
     this.onClick.emit();

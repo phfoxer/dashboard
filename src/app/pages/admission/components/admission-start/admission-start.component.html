@@ -6,11 +6,46 @@
             futuramente.
             Digite apenas os números (sem pontos ou traços).</div>
         <form [formGroup]="form">
-            <dash-input formControlName="cpf" label="CPF" type="number" placeholder="000.000.000-00" />
-            <dash-button (onClick)="onSubmit()" appearance="primary">Consultar por CPF</dash-button>
+            <div class="input-form">
+                <dash-input formControlName="cpf" label="CPF" type="number" placeholder="000.000.000-00"
+                    [full]="true" />
+            </div>
+            <dash-button [disabled]="disableSubmit() || form.invalid" (onClick)="onSubmit()" appearance="primary" data-test-id="submit" >
+                @if (isLoading()) {Loading...} @else { Consultar por CPF}
+            </dash-button>
         </form>
+        @if (user()) {
+        <dash-card title="Situação cadastral do CPF" subtitle="Consulta na Receita Federal">
+            <div class="card">
+                <div class="card-line">
+                    <div class="card-line_icon">
+                        Icon
+                    </div>
+                    <div class="card-line_name">
+                        <span>Nome</span>
+                        <div>{{user()?.name}}</div>
+                    </div>
+                </div>
+                <div class="card-line">
+                    <div class="card-line_icon">
+                        Icon
+                    </div>
+                    <div class="card-line_name">
+                        <span>Situação</span>
+                        <div>{{user()?.status}}</div>
+                    </div>
+                </div>
+            </div>
+        </dash-card>
+        }
+
+
+
     </div>
-    <dash-footer>
+    <dash-footer class="page-footer">
+        @if (user()) {
+        <dash-button size="lg" (onClick)="goToDocumentation()" appearance="primary">Iniciar nova admissão</dash-button>
+        }
         <dash-button size="lg">Dicas para abertura de conta</dash-button>
     </dash-footer>
 

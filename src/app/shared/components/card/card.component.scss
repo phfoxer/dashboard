@@ -1,0 +1,13 @@
+.card-wrapper {
+    padding: 1.25rem;
+    background-color: var(--white);
+    display: inline-flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 0.25rem 0px #00000040;
+}
+.title {
+font-weight: 700;
+}
+.subtitle {
+    color: var(--text-2);
+}

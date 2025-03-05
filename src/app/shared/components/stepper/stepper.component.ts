@@ -25,7 +25,6 @@ import { StepperStepDirective } from './directives/stepper-step/stepper-step.dir
  * ```
  */
 @Component({
-  standalone: true,
   selector: 'dash-stepper',
   imports: [
     CommonModule

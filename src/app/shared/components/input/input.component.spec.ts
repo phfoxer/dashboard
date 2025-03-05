@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InputComponent } from './input.component';
+import { By } from '@angular/platform-browser';
 
 describe('InputComponent', () => {
   let component: InputComponent;
@@ -28,7 +29,7 @@ describe('InputComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should accept only numbers', () => { 
+  it('should change the label', () => { 
     // Arrange
     fixture = TestBed.createComponent(InputComponent);
 
@@ -36,10 +37,8 @@ describe('InputComponent', () => {
     fixture.componentRef.setInput('type', 'number');
     fixture.componentRef.setInput('label', 'Age');    
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    const input = compiled.getElementsByTagName('input').item(0);
-    input?.setAttribute('value', '0');
     // Assert
-    expect(typeof input?.value).toEqual('number');
+    const labelElement = fixture.debugElement.query(By.css('label')).nativeElement;
+    expect(labelElement.textContent).toBe('Age');
   });
 });

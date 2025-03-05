@@ -6,8 +6,8 @@ label {
 
 input {
   background-color: var(--white);
-  padding: 5px 10px;
-  border: 1px solid var(--line-2);
+  padding: 0.3125rem 0.625rem;
+  border: 0.0625rem solid var(--line-2);
   height: 2.125rem;
   &::placeholder {
     color: var(--text-2);
@@ -18,6 +18,9 @@ input {
   }
   &.invalid {
     border-color: var(--error);
+  }
+  &.full {
+    width: 100%;
   }
 
 } 

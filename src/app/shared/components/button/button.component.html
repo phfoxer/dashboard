@@ -2,6 +2,6 @@
 @let sizeClass = 'size-' + size();
 
 
-<button [class]="colorClass+' '+sizeClass" (click)="onClickHandler($event)" >
+<button [disabled]="disabled()" [class]="colorClass+' '+sizeClass" (click)="onClickHandler($event)" >
     <ng-content></ng-content>
 </button>

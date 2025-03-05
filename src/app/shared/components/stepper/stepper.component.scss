@@ -1,7 +1,7 @@
 .stepper {
   width: 100%;
   display: flex;
-  padding: 0.3125rem;
+  margin: 0.3125rem;
   color: var(--text-4);
   height: 4rem;
   padding: 0rem 1.875rem;
@@ -22,9 +22,9 @@
       border: 0.125rem solid var(--line-1);
       display: block;
       text-align: center;
-      padding: 0 auto 0;
+      margin: 0 auto 0;
       background-color: var(--line-1);
-      padding-top: 0.3125rem;
+      margin-top: 0.3125rem;
     }
 
     &:after {
@@ -43,10 +43,10 @@
     }
 
     &_label {
-      padding-top: 0.875rem;
+      margin-top: 0.875rem;
       position: absolute;
       top: 1.875rem;
-      padding-left: -50%;
+      margin-left: -50%;
       width: 9.375rem;
     }
 

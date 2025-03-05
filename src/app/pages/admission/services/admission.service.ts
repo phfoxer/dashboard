@@ -7,8 +7,8 @@ export class AdmissionService {
 
     public getUseByCpf(_: string):Observable<any> { 
         return of({
-            cpf: '551.543.680-61',
-            name: 'Mariane de Sousa Oliveira',
+            cpf: '55154368061',
+            name: 'Paulo Henrique Santos',
             status: CPF_STATUS.REGULAR,
         }).pipe(delay(1500));
     }

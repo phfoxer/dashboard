@@ -1,6 +1,5 @@
 button {
-
-  border-radius: 0px;
+  border-radius: 0rem;
   cursor: pointer;
   transition: background-color 0.3s;
   display: inline-flex;
@@ -9,13 +8,19 @@ button {
   &.color-primary {
     background-color: var(--primary);
     color: var(--white);
-    border:1px solid   var(--primary);
+    border: 0.0625rem solid var(--primary);
+    &:disabled {
+      background-color: var(--primary-inactive);
+      color: var(--white);
+      border: 0.0625rem solid var(--primary-inactive);
+      cursor: not-allowed;
+    }
   }
-  
+
   &.color-link {
     background-color: var(--white);
     color: var(--primary);
-    border:1px solid var(--primary);
+    border: 0.0625rem solid var(--primary);
   }
 
   &.size-md {

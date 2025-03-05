@@ -4,7 +4,7 @@ import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { Router, RouterOutlet } from '@angular/router';
 import { StepperComponent, StepperStepDirective } from '@dash-components/stepper';
 import { STEP_LIST } from './export/admission.model';
-import { AdmissionFormService } from './services/admission-form.service';
+import { FormService } from './services/admission-form.service';
 
 @Component({
   selector: 'dash-admission',
@@ -25,19 +25,20 @@ export class AdmissionComponent implements OnInit {
   protected stepList: KeyValue<string, string>[] = STEP_LIST;
 
   private readonly _router = inject(Router);
-  private readonly _admissionService = inject(AdmissionFormService);
+  private readonly _admissionService = inject(FormService);
 
   constructor() {
     toObservable(this.step).subscribe((step) => {
       const current = this.stepList[step - 1];
       if (!current) return;
       this._admissionService.setStep(step);
-      this._router.navigate([`/admissao/${current.key}`]);
+      this._router.navigate([`/${current.key}`]);
     });
 
     this._admissionService.step$.pipe(takeUntilDestroyed()).subscribe((step) => {
-      if (this.step() === step) return;
-      this.step.set(step);
+      if (this.step() !== step) {
+        this.step.set(step);
+      }
     });
   }
 

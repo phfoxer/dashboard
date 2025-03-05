@@ -8,6 +8,25 @@ $header-height: 5.563rem;
     width: $menu-height;
     height: 100%;
     background-color: var(--primary);
+    &_logo {
+      height: 5.625rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1.875rem;
+    }
+    &_items {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.875rem;
+      &__item {
+        width: 30px;
+        height: 30px;
+        background-color: var(--white);
+        border-radius: 50%;
+      }
+    }
   }
   &-content {
     width: calc(100% - $menu-height);
@@ -19,11 +38,23 @@ $header-height: 5.563rem;
     &_header {
       background-color: var(--white);
       height: $header-height;
+      display: flex;
+      align-items: center;
+      padding: 0 1.875rem;
+      &__info {
+        h1 {
+          font-size: var(--size-5);
+          font-weight: 700;
+        }
+        div {
+          font-size: var(--size-4);
+          color: var(--text-2);
+        }
+      }
     }
     &_body {
       height: calc(100dvh - $header-height);
       overflow-y: scroll;
     }
-
   }
 }

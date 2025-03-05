@@ -6,9 +6,16 @@ $spaces-style-guide: (
 );
 
 $font-size-style-guide: (
-  size-1: 0.875rem, // 14px
-  size-2: 1.375rem, // 22px
-  size-3: 1rem, // 16px
+  // 14px
+  size-1: 0.875rem,
+  // 22px
+  size-2: 1.375rem,
+  // 16px
+  size-3: 1rem,
+  // 12px
+  size-4: 0.75rem,
+  // 24px
+  size-5: 1.5rem
 );
 
 :root {
