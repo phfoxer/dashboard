@@ -1,4 +1,27 @@
 label {
-    display: block;
-    margin-bottom: 0.5rem;
+  display: block;
+  padding-bottom: 0.125rem;
+  font-weight: 600;
+}
+
+input {
+  background-color: var(--white);
+  padding: 5px 10px;
+  border: 1px solid var(--line-2);
+  height: 2.125rem;
+  &::placeholder {
+    color: var(--text-2);
+  }
+  &:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+  &.invalid {
+    border-color: var(--error);
+  }
+
+} 
+sub {
+  color: var(--error);
+  display: block;
 }

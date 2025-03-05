@@ -1,0 +1,21 @@
+$spaces-style-guide: (
+  space-0: 0,
+  space-1: 0.25rem,
+  space-2: 0.5rem,
+  space-3: 0.75rem,
+);
+
+$font-size-style-guide: (
+  size-1: 0.875rem, // 14px
+  size-2: 1.375rem, // 22px
+  size-3: 1rem, // 16px
+);
+
+:root {
+  @each $key, $value in $spaces-style-guide {
+    --#{""+$key}: #{$value};
+  }
+  @each $key, $value in $font-size-style-guide {
+    --#{""+$key}: #{$value};
+  }
+}

@@ -1,1 +1,7 @@
-<p>button works!</p>
+@let colorClass = 'color-' + appearance();
+@let sizeClass = 'size-' + size();
+
+
+<button [class]="colorClass+' '+sizeClass" (click)="onClickHandler($event)" >
+    <ng-content></ng-content>
+</button>

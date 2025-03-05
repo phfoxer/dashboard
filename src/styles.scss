@@ -1,5 +1,6 @@
-@use "theme/main.theme" as mainTheme;
-@use "theme/default.theme" as defaultTheme;
+@use "styles/theme/main.theme" as mainTheme;
+@use "styles/theme/default.theme" as defaultTheme;
+@use "styles/guide/spaces.guide";
 
 @include mainTheme.set-theme(defaultTheme.$light-value-map);
 
@@ -16,3 +17,15 @@
     font-style: normal;
 }
 
+.page {
+    padding: 0 1.875rem;
+}
+.wrapper {
+    height: 100vh;
+}
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}

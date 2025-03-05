@@ -1,14 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, contentChildren, effect, inject, model, ModelSignal, signal, Signal, TemplateRef, WritableSignal } from '@angular/core';
-import { StepperFormDirective } from './directives/stepper-form/stepper-form.directive';
-import { StepperStepDirective } from './directives/stepper-step/stepper-step.directive';
-import { StepperService } from './services/stepper.service';
+import { ChangeDetectionStrategy, Component, computed, contentChildren, model, ModelSignal, Signal, TemplateRef } from '@angular/core';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
+import { StepperStepDirective } from './directives/stepper-step/stepper-step.directive';
 /**
  * @name Stepper
  * @description
  * The `Stepper` component is a component that allows you to create a stepper component.
  * @link https://zeroheight.com/208c7c4a6/p/625a9e-stepper
+ * @output step: ModelSignal<number> - The current step of the stepper.
+ * @dependencies StepperStepDirective
  * @usage
  * ```html
  *<dash-stepper [(step)]="step">
@@ -21,16 +21,6 @@ import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
  *    <ng-template stepper-step>
  *        <label>Step 3</label>
  *    </ng-template>
- *  <ng-template stepper-form>
- *        @switch (step()) {
- *        @case (1) {
- *        <ng-container [ngTemplateOutlet]="stepOneFormComponent"></ng-container>
- *        }
- *        @case (2) {
- *        <ng-container [ngTemplateOutlet]="stepTwoFormComponent"></ng-container>
- *        }
- *        }
- *    </ng-template>
  *</dash-stepper>
  * ```
  */
@@ -42,19 +32,17 @@ import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
   ],
   templateUrl: './stepper.component.html',
   styleUrl: './stepper.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { class: 'stepper' }
 })
 export class StepperComponent {
 
   public step: ModelSignal<number> = model.required();
 
-  protected form = computed(() => this.buildFormTemplate());
   protected steps = computed(() => this.buildStepsTemplate());
   protected itemWidth: Signal<number> = computed(() => 100 / this.steps().length);
 
-  private readonly _stepperService = inject(StepperService);
   private stepsTemlate: Signal<readonly StepperStepDirective[]> = contentChildren(StepperStepDirective);
-  private formTemplate: Signal<readonly StepperFormDirective[]> = contentChildren(StepperFormDirective);
 
   constructor() {
     toObservable(this.step).pipe(takeUntilDestroyed()).subscribe((step) => {
@@ -67,21 +55,11 @@ export class StepperComponent {
         this.step.set(_maxItems);
         return;
       }
-      console.log('Step changed fim', step);
     });
   }
 
   protected changeStep(step: number) {
     this.step.set(step);
-  }
-
-  private buildFormTemplate(): TemplateRef<HTMLFormElement> | null {
-    const formTemplateList = this.formTemplate();
-    if (formTemplateList.length === 0) {
-      throw new Error('No form template found');
-    }
-    const template = formTemplateList[0].templateRef;
-    return template as TemplateRef<HTMLFormElement>;
   }
 
   private buildStepsTemplate(): TemplateRef<HTMLElement>[] {

@@ -1,9 +1,9 @@
 import { Directive, TemplateRef } from "@angular/core";
 
 @Directive({
-    selector: '[stepper-form]'
+    selector: '[layout-footer]'
 })
-export class StepperFormDirective { 
+export class LayoutFootDirective { 
    
     constructor(public templateRef: TemplateRef<any>) {}
 }

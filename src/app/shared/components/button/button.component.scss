@@ -1,0 +1,31 @@
+button {
+
+  border-radius: 0px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: inline-flex;
+  align-items: center;
+
+  &.color-primary {
+    background-color: var(--primary);
+    color: var(--white);
+    border:1px solid   var(--primary);
+  }
+  
+  &.color-link {
+    background-color: var(--white);
+    color: var(--primary);
+    border:1px solid var(--primary);
+  }
+
+  &.size-md {
+    height: 2.125rem;
+    padding: 0.3125rem 0.5rem;
+  }
+
+  &.size-lg {
+    height: 3rem;
+    padding: 0 1.25rem;
+    font-size: var(--size-3);
+  }
+}

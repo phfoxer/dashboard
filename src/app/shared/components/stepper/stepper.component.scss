@@ -1,44 +1,41 @@
-.wrapper-progressBar {
-  width: 100%;
-}
 .stepper {
   width: 100%;
   display: flex;
-  margin: 5px;
+  padding: 0.3125rem;
   color: var(--text-4);
-
-
-
+  height: 4rem;
+  padding: 0rem 1.875rem;
+  
   &-item {
     list-style-type: none;
     float: left;
-    position: relative;
     text-align: center;
-    
-
+    position: relative;
     &:before {
       content: " ";
       border-radius: 50%;
-      width: 18px;
-      height: 18px;
+      z-index: 2;
+      position: absolute;
+      width: 1.125rem;
+      height: 1.125rem;
       cursor: pointer;
-      border: 2px solid var(--line-1);
+      border: 0.125rem solid var(--line-1);
       display: block;
       text-align: center;
-      margin: 0 auto 0px;
+      padding: 0 auto 0;
       background-color: var(--line-1);
-      margin-top: 5px;
+      padding-top: 0.3125rem;
     }
 
     &:after {
       content: "";
       position: absolute;
       width: 100%;
-      height: 2px;
+      height: 0.125rem;
       background-color: var(--line-1);
-      top: 15px;
-      left: -50%;
-      z-index: -1;
+      top: 0.9375rem;
+      left: -100%;
+      z-index: 0;
     }
 
     &:first-child:after {
@@ -46,20 +43,24 @@
     }
 
     &_label {
-      margin-top: 0.875rem;
+      padding-top: 0.875rem;
+      position: absolute;
+      top: 1.875rem;
+      padding-left: -50%;
+      width: 9.375rem;
     }
 
     &_active {
       color: var(--primary);
       &:before {
-        border: 2px solid var(--primary);
+        border: 0.125rem solid var(--primary);
         background-color: var(--white);
       }
     }
     &_done {
       color: var(--primary);
       &:before {
-        border: 2px solid var(--primary);
+        border: 0.125rem solid var(--primary);
         background-color: var(--primary);
       }
     }

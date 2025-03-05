@@ -1,40 +1,16 @@
-<dash-stepper [(step)]="step">
-    <ng-template stepper-step>
-        <label>Inicio</label>
-    </ng-template>
-    <ng-template stepper-step>
-        <label>Documentos</label>
-    </ng-template>
-    <ng-template stepper-step>
-        <label>Dados Cadastrais</label>
-    </ng-template>
-    <ng-template stepper-step>
-        <label>Admissão</label>
-    </ng-template>
-    <ng-template stepper-form>
-        @switch (step()) {
-        @case (1) {
-        <ng-container [ngTemplateOutlet]="startForm"></ng-container>
-        }
-        @case (2) {
-        <ng-container [ngTemplateOutlet]="documentForm"></ng-container>
-        }
-        }
-    </ng-template>
-</dash-stepper>
-
-
-<ng-template #startForm>
-    <label>Form 1</label>
-</ng-template>
-
-<ng-template #documentForm>
-    <label>Form 2</label>
-</ng-template>
-
-<p>
-    <button (click)="setStep(step()-1)" >Anteiror</button>
-</p>
-<p>
-    <button (click)="setStep(step()+1)" >Proxima</button>
-</p>
+<div class="page-wrapper">
+    <div class="stepper">
+        <div class="dash-stepper">
+            <dash-stepper [(step)]="step">
+                @for (label of stepList; track $index) {
+                <ng-template stepper-step>
+                    <label>{{label.value}}</label>
+                </ng-template>
+                }
+            </dash-stepper>
+        </div>
+    </div>
+    <div class="form-area">
+        <router-outlet />
+    </div>
+</div>

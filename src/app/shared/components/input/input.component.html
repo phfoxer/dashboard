@@ -1,2 +1,6 @@
 <label for="input">{{label()}}</label>
-<input [type]="type()" [(ngModel)]="inputValue" (focus)="onTouch && onTouch()" />
+<input [type]="type()" [(ngModel)]="inputValue" (focus)="onTouch && onTouch()" [placeholder]="placeholder()" 
+[ngClass]="{'invalid': hasErros().invalid}" />
+
+    <sub>{{hasErros().message || '&nbsp;'}}</sub>
+

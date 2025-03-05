@@ -1,0 +1,17 @@
+<div class="page-wrapper">
+    <div class="page">
+        <h1 class="title">Informe o CPF do futuro cooperado (a)</h1>
+        <div class="description">Se necessário, você poderá duplicar uma conta existente ou pausar e retomar este
+            cadastro
+            futuramente.
+            Digite apenas os números (sem pontos ou traços).</div>
+        <form [formGroup]="form">
+            <dash-input formControlName="cpf" label="CPF" type="number" placeholder="000.000.000-00" />
+            <dash-button (onClick)="onSubmit()" appearance="primary">Consultar por CPF</dash-button>
+        </form>
+    </div>
+    <dash-footer>
+        <dash-button size="lg">Dicas para abertura de conta</dash-button>
+    </dash-footer>
+
+</div>

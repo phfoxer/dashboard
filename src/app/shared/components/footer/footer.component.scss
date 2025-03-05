@@ -1,0 +1,8 @@
+$footer-height: 4.875rem;
+.footer {
+  background-color: var(--white);
+  height: $footer-height;
+  padding: 0rem 1.875rem;
+  display: flex;
+  align-items: center;
+}
