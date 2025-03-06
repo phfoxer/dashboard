@@ -5,5 +5,5 @@ import { Directive, TemplateRef } from "@angular/core";
 })
 export class LayoutFootDirective { 
    
-    constructor(public templateRef: TemplateRef<any>) {}
+    constructor(public templateRef: TemplateRef<HTMLElement>) {}
 }

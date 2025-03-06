@@ -4,7 +4,7 @@ import { Observable } from "rxjs";
 
 @Injectable({ providedIn: 'root' })
 export class FormService {
-    private _step: WritableSignal<number> = signal(0);
+    private _step: WritableSignal<number> = signal(1);
     public readonly step$: Observable<number> = toObservable(this._step);
 
     public setStep(step:number): void {

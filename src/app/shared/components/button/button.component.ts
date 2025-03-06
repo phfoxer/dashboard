@@ -13,7 +13,7 @@ export class ButtonComponent {
   public appearance: InputSignal<TButtonAppearance> = input<TButtonAppearance>('link');
   public disabled: InputSignal<boolean> = input<boolean>(false);
 
-  protected onClickHandler(event:any) {
+  protected onClickHandler(event: Event) {
     this.onClick.emit();
     event.preventDefault();
   }

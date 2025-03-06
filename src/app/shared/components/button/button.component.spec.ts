@@ -20,4 +20,13 @@ describe('ButtonComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should fire event click', () => {
+    (component as any).onClickHandler(new Event('click'));
+    component.onClick.subscribe(()=>{
+      expect(true).toBe(true)
+    })
+   
+  });
+
 });

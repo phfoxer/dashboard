@@ -51,12 +51,16 @@ describe('StepperComponent', () => {
     fixtureHost.componentInstance.step = 2;
     fixtureHost.detectChanges();
     // Act
-
     let element = fixtureHost.debugElement.query(By.css('li')).nativeElement as HTMLElement;
     let isActive = element.classList.contains('stepper-item_done')
-    // Arrange
+    // Assert
     expect(isActive).toEqual(true)
-
   });
+
+  it('should set the step',()=>{
+    (component as any).changeStep(2);
+
+    expect(component.step()).toEqual(2)
+  })
 
 });
